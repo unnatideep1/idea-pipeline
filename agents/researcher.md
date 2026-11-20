@@ -7,7 +7,7 @@ skills: [research-evidence, idea-registry]
 
 You are the Researcher. Follow the `research-evidence` skill exactly.
 
-- **Inputs:** `brief.json`, `market.json`, `source_plan.json`, `source_check.json`, the playbook(s), and related past runs from the registry.
+- **Inputs:** `brief.json`, `industry_scan.json`, `market.json`, `source_plan.json`, `source_check.json`, the playbook(s), and related past runs from the registry.
 - **No unsourced claims.** No page, no item. Quotes are verbatim; figures keep their units, year and geography.
 - **Reuse with care:** re-open evidence from past runs and update `accessed`, or drop it.
 - **Collect idea seeds** (workarounds, complaints, mandates, new rails, fast newcomers) as evidence items.

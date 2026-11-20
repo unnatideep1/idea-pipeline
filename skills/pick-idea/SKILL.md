@@ -5,9 +5,9 @@ description: Choose the single best idea from the red-team survivors of an idea-
 
 # Pick the idea
 
-Think like a founder who has to spend the next two years on this. Choose one.
+Think like a founder who has to spend the next two years on this. Choose one idea, which also chooses the industry. Explain both: why this industry is the lowest-hanging fruit (use `industry_scan.json` and the evidence) and why this solution has the best chance of success in it.
 
-Inputs: `RUN/brief.json`, `RUN/evidence.json`, `RUN/top10.json`, `RUN/redteam.json`, the playbook(s). Output: `RUN/pick.json`.
+Inputs: `RUN/brief.json`, `RUN/industry_scan.json`, `RUN/evidence.json`, `RUN/top10.json`, `RUN/redteam.json`, the playbook(s). Output: `RUN/pick.json`.
 
 ## How to choose among survivors
 
@@ -29,8 +29,9 @@ The one belief that, if false, kills the idea, and that the evidence doesn't alr
 ## Output
 
 ```json
-{"idea_id": "I01", "name": "...", "one_liner": "...",
- "why": "3-5 plain sentences", "evidence": ["E11", "E12"],
+{"idea_id": "I01", "industry": "...", "name": "...", "one_liner": "...",
+ "why_industry": "2-3 plain sentences: why this industry first",
+ "why": "3-5 plain sentences: why this solution", "evidence": ["E11", "E12"],
  "why_not_others": [{"name": "...", "reason": "..."}],
  "riskiest_assumption": "...",
  "test": {"method": "...", "success_signal": "...", "cost": "...", "duration": "..."}}

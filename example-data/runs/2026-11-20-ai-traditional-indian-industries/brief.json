@@ -1,0 +1,22 @@
+{
+  "example": true,
+  "title": "AI for traditional Indian industries",
+  "slug": "ai-traditional-indian-industries",
+  "summary": "Find the Indian traditional industry where AI is the lowest-hanging fruit, then the single solution in it with the highest chance of success for a small team within 12 months.",
+  "space": "Traditional industry adopting AI",
+  "playbook": "india-traditional-ai",
+  "scope": "Open: any traditional Indian industry. The industry scan chooses where to look.",
+  "industry": "Open (decided by the industry scan)",
+  "use_case": "Open: any workflow",
+  "geography": "India, starting with Tier 1 and Tier 2 cities",
+  "buyer": "Businesses or institutions in the chosen industry (decided by research)",
+  "business_model": "B2B subscription or per-transaction fee",
+  "constraints": [
+    "Small founding team, no hardware manufacturing",
+    "Must sell in under 6 months per customer",
+    "Interfaces in English, Hindi and at least one regional language"
+  ],
+  "goal": "One industry and one idea with evidence of willingness to pay and a test that can run in 4 weeks",
+  "prior_runs": [],
+  "approved": "2026-11-20"
+}

@@ -35,6 +35,22 @@ What to look for in those sources. Each one points to a possible idea.
 
 - **<signal>:** <what it looks like, where you find it>
 
+## Industry screen
+
+Used by the industry scout before any deep research. Score each candidate 1-5; weights sum to 100; total = sum(score x weight) / 5. Every 4 or 5 needs a signal with a URL. Shortlist about 3.
+
+Candidates are the units this space is screened at (industries, verticals or consumer segments).
+
+| Criterion | Weight | 5 means | 1 means |
+|---|---|---|---|
+| <pain / money at stake> | 20 |  |  |
+| <buyer readiness> | 20 |  |  |
+| <reachability & sales cycle> | 20 |  |  |
+| <competition density, low is good> | 20 |  |  |
+| <why now> | 20 |  |  |
+
+Example longlist: <12-20 candidates>.
+
 ## Scoring rubric
 
 Score each criterion 1-5. Weights sum to 100. Total = sum(score x weight) / 5, out of 100. Every 4 or 5 must cite evidence ids.

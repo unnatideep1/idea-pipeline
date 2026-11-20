@@ -22,8 +22,9 @@ Run every test. Each finding cites evidence ids, or says plainly that there is n
 3. **Why now?** What changed in the last 2-3 years? If nothing, why hasn't it been built?
 4. **Why won't incumbents or big players build it?** Name them. Could they ship it as a feature in one release?
 5. **Regulatory and data risk.** Licences, data localisation, liability, sector regulators.
-6. **The playbook's kill criteria.** Any hit is fatal unless the evidence clearly says otherwise.
-7. **Founder fit (optional).** Only if `founder_profile.md` exists: does the founder have access, credibility or skills that change the odds? Never kill on founder fit alone, and never require the file. Set `founder_fit_checked` accordingly.
+6. **Industry check.** Is this idea's industry still a good place to start, given the evidence (not just the scout's quick screen)? Say so if the research contradicts the scan.
+7. **The playbook's kill criteria.** Any hit is fatal unless the evidence clearly says otherwise.
+8. **Founder fit (optional).** Only if `founder_profile.md` exists: does the founder have access, credibility or skills that change the odds? Never kill on founder fit alone, and never require the file. Set `founder_fit_checked` accordingly.
 
 ## 3. Verdict
 

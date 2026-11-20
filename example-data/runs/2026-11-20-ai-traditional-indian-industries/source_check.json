@@ -1,0 +1,15 @@
+{
+  "verdict": "GAPS",
+  "rounds": 2,
+  "independent_list_size": 26,
+  "overlap": 20,
+  "resolved": [
+    "Added Karnataka RERA so regulatory evidence is not single-state",
+    "Added Hindi YouTube channels as local-language customer voice",
+    "Added SIDBI MSME Pulse so payment-delay claims are not only from forums"
+  ],
+  "unresolved_gaps": [
+    "No paid-data source for actual software spend in any of the three industries; willingness to pay relies on competitor pricing pages and job posts",
+    "Tamil and Telugu sources not yet covered (Q7)"
+  ]
+}

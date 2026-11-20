@@ -1,6 +1,6 @@
 ---
 name: render-dashboard
-description: Render an idea-pipeline run folder into one self-contained, progressive dashboard.html (brief, target market, sources, top 10, pick), and define the JSON files each stage writes. Use after every pipeline stage, or when the user asks to see a run.
+description: Render an idea-pipeline run folder into one self-contained, progressive dashboard.html (brief, industry scan, target market, sources, top 10, pick), and define the JSON files each stage writes. Use after every pipeline stage, or when the user asks to see a run.
 ---
 
 # Render the dashboard
@@ -14,10 +14,11 @@ Python 3.9+, standard library only. Writes `dashboard.html` into the run folder:
 | # | Section | Reads | Pending until |
 |---|---|---|---|
 | 1 | Brief | `brief.json` | brief written |
-| 2 | Target market | `market.json` | source hunter done |
-| 3 | Sources (+ checker warning) | `source_plan.json`, `source_check.json` | source hunter done |
-| 4 | Top 10 ideas (+ red-team badges) | `top10.json`, `redteam.json`, `evidence.json` | analyst done |
-| 5 | The pick | `pick.json` | entrepreneur done |
+| 2 | Industry scan (shortlist + "why not now" table) | `industry_scan.json` | industry scout done |
+| 3 | Target market | `market.json` | source hunter done |
+| 4 | Sources (+ checker warning) | `source_plan.json`, `source_check.json` | source hunter done |
+| 5 | Top 10 ideas (+ industry tag, red-team badges) | `top10.json`, `redteam.json`, `evidence.json` | analyst done |
+| 6 | The pick (industry + solution) | `pick.json` | entrepreneur done |
 
 Citations (`E01`...) resolve to the evidence log, so the cards show the claim, quote, link and date. If `brief.json` has `"example": true`, an example banner is shown.
 
@@ -28,20 +29,28 @@ Only the fields shown are read by the renderer; agents may add more.
 **brief.json**
 ```json
 {"title": "", "slug": "", "summary": "", "space": "", "playbook": "", "secondary_playbook": "",
- "industry": "", "use_case": "", "geography": "India", "buyer": "", "user": "",
+ "scope": "", "industry": "Open (decided by the industry scan)", "use_case": "", "geography": "India", "buyer": "", "user": "",
  "business_model": "", "constraints": [""], "goal": "", "prior_runs": [""], "approved": "yyyy-mm-dd"}
+```
+
+**industry_scan.json**
+```json
+{"level": "industry|segment", "summary": "", "rubric": [{"criterion": "", "weight": 20}],
+ "candidates": [{"rank": 1, "name": "", "one_liner": "", "score": 0, "scores": {"criterion": 1},
+   "shortlisted": true, "reason": "", "signals": [{"text": "", "url": "", "source": ""}]}],
+ "shortlist": [""]}
 ```
 
 **market.json**
 ```json
 {"summary": "", "buyer": "", "user": "", "geography": "", "stage": "", "notes": "",
- "segments": [{"name": "", "size_hint": "", "description": "", "evidence": ["E01"]}]}
+ "segments": [{"name": "", "industry": "", "size_hint": "", "description": "", "evidence": ["E01"]}]}
 ```
 
 **source_plan.json**
 ```json
-{"playbook": "", "questions": [{"id": "Q1", "question": ""}],
- "sources": [{"id": "S01", "name": "", "url": "", "type": "", "questions": ["Q1"], "why": "",
+{"playbook": "", "shortlist": [""], "questions": [{"id": "Q1", "question": ""}],
+ "sources": [{"id": "S01", "name": "", "url": "", "type": "", "industries": [""], "questions": ["Q1"], "why": "",
    "credibility": 5, "recency": "", "bias": "", "access": "free", "india_relevance": "high"}],
  "gaps": [""], "changes": [""]}
 ```
@@ -59,8 +68,8 @@ Only the fields shown are read by the renderer; agents may add more.
 
 **top10.json**
 ```json
-{"playbook": "", "rubric": [{"criterion": "", "weight": 20}],
- "ideas": [{"rank": 1, "id": "I01", "name": "", "one_liner": "", "score": 0,
+{"playbook": "", "rubric": [{"criterion": "", "weight": 20}], "industries": [""],
+ "ideas": [{"rank": 1, "id": "I01", "industry": "", "name": "", "one_liner": "", "score": 0,
    "scores": {"criterion": 1}, "why": "", "risks": [""], "evidence": ["E01"]}]}
 ```
 
@@ -73,9 +82,9 @@ Only the fields shown are read by the renderer; agents may add more.
 
 **pick.json**
 ```json
-{"idea_id": "I01", "name": "", "one_liner": "", "why": "", "evidence": ["E01"],
+{"idea_id": "I01", "industry": "", "name": "", "one_liner": "", "why_industry": "", "why": "", "evidence": ["E01"],
  "why_not_others": [{"name": "", "reason": ""}], "riskiest_assumption": "",
  "test": {"method": "", "success_signal": "", "cost": "", "duration": ""}}
 ```
 
-See `${CLAUDE_PLUGIN_ROOT}/example-data/runs/2026-11-20-ai-indian-construction/` for a complete example.
+See `${CLAUDE_PLUGIN_ROOT}/example-data/runs/2026-11-20-ai-traditional-indian-industries/` for a complete example.

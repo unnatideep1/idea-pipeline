@@ -5,7 +5,7 @@ description: Execute an idea-pipeline source plan and build the evidence log, wh
 
 # Research evidence
 
-Inputs: `RUN/brief.json`, `RUN/market.json`, `RUN/source_plan.json`, `RUN/source_check.json`, the playbook(s), related past runs from the registry. Output: `RUN/evidence.json`, and updated size hints in `RUN/market.json`.
+Inputs: `RUN/brief.json`, `RUN/industry_scan.json`, `RUN/market.json`, `RUN/source_plan.json`, `RUN/source_check.json`, the playbook(s), related past runs from the registry. Output: `RUN/evidence.json`, and updated size hints in `RUN/market.json`.
 
 ## Rules
 
@@ -25,7 +25,7 @@ Inputs: `RUN/brief.json`, `RUN/market.json`, `RUN/source_plan.json`, `RUN/source
 
 ## Process
 
-1. Work question by question through `source_plan.json`. Aim for at least 3 items per question, from different source types.
+1. Work question by question through `source_plan.json`. Aim for at least 3 items per question **per shortlisted industry**, from different source types. Give each industry a fair share of effort; uneven research biases the ranking.
 2. Collect **idea seeds** as you go: complaints, workarounds (spreadsheets, WhatsApp, paper), regulations that create recurring work, new rails or mandates, newcomers growing fast. Log each as evidence; the analyst turns them into ideas.
 3. Note sources that turned out dry, paywalled or off-topic in `notes` on the item or in a top-level `dry_sources` list; the hunter uses this for `source_yield.json`.
 4. Replace `market.json` size hints with sourced figures where you found them, and add their evidence ids to the segment.

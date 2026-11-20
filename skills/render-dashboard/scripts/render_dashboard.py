@@ -18,6 +18,7 @@ from pathlib import Path
 
 SECTIONS = [
     ("brief", "Brief"),
+    ("scan", "Industry scan"),
     ("market", "Target market"),
     ("sources", "Sources"),
     ("ideas", "Top 10 ideas"),
@@ -69,6 +70,7 @@ def render_brief(brief) -> str:
     rows = [
         ("Space", brief.get("space")),
         ("Playbook", brief.get("playbook")),
+        ("Scope", brief.get("scope")),
         ("Industry", brief.get("industry")),
         ("Use case", brief.get("use_case")),
         ("Geography", brief.get("geography")),
@@ -92,7 +94,8 @@ def render_market(market, ev_index) -> str:
     segs = market.get("segments") or []
     def seg(s):
         size = f' <span class="muted">· {e(s.get("size_hint"))}</span>' if s.get("size_hint") else ""
-        return (f'<li><strong>{e(s.get("name"))}</strong>{size}<br><span class="muted">{e(s.get("description"))}</span>'
+        ind = f'<span class="ind">{e(s.get("industry"))}</span> ' if s.get("industry") else ""
+        return (f'<li>{ind}<strong>{e(s.get("name"))}</strong>{size}<br><span class="muted">{e(s.get("description"))}</span>'
                 f'{cite_inline(s.get("evidence"), ev_index)}</li>')
 
     items = "".join(seg(s) for s in segs)
@@ -118,6 +121,65 @@ def cite_inline(ids, ev_index) -> str:
         else:
             parts.append(e(i))
     return f' <span class="cites">[{", ".join(parts)}]</span>'
+
+
+def score_html(score) -> str:
+    try:
+        pct = max(0, min(100, float(score)))
+    except (TypeError, ValueError):
+        pct = 0
+    return (f'<span class="score" aria-label="Score {e(score)} of 100"><span class="bar">'
+            f'<span style="width:{pct:.0f}%"></span></span>{e(score)}</span>')
+
+
+def render_scan(scan) -> str:
+    if not scan:
+        return pending("The industry scan")
+    noun = "segments" if scan.get("level") == "segment" else "industries"
+    cands = sorted(scan.get("candidates") or [], key=lambda c: -(c.get("score") or 0))
+    short = [c for c in cands if c.get("shortlisted")]
+    rest = [c for c in cands if not c.get("shortlisted")]
+    out = [f'<p class="lead">{e(scan.get("summary"))}</p>' if scan.get("summary") else "",
+           f'<p class="muted">Screened {len(cands)} {noun} for the lowest-hanging fruit; '
+           f'{len(short)} shortlisted for deep research.</p>']
+    rubric = scan.get("rubric") or []
+    if rubric:
+        chips = "".join(f'<li>{e(r.get("criterion"))} <span class="muted">{e(r.get("weight"))}%</span></li>' for r in rubric)
+        out.append(f'<details class="more"><summary>Screening rubric</summary><ul class="chips">{chips}</ul></details>')
+    cards = []
+    for c in short:
+        breakdown = "".join(f"<li><span>{e(k)}</span><span>{e(v)}/5</span></li>" for k, v in (c.get("scores") or {}).items())
+        signals = "".join(
+            f'<li>{e(sg.get("text"))} <span class="muted small">({link(sg.get("url"), sg.get("source") or sg.get("url"))})</span></li>'
+            for sg in c.get("signals") or []
+        )
+        cards.append(
+            '<li class="idea"><details><summary>'
+            f'<span class="rank">#{cands.index(c) + 1}</span>'
+            f'<span class="idea-main"><span class="idea-name">{e(c.get("name"))}</span>'
+            f'<span class="idea-line">{e(c.get("one_liner"))}</span></span>'
+            f'<span class="idea-side">{score_html(c.get("score"))}<span class="tag survive">Shortlisted</span></span>'
+            '</summary><div class="idea-body">'
+            f'<h4>Why it\'s low-hanging fruit</h4><p>{e(c.get("reason"))}</p>'
+            + (f'<h4>Score breakdown</h4><ul class="breakdown">{breakdown}</ul>' if breakdown else "")
+            + (f'<h4>Signals</h4><ul class="cite-list">{signals}</ul>' if signals else "")
+            + "</div></details></li>"
+        )
+    out.append(f'<ol class="ideas">{"".join(cards)}</ol>')
+    if rest:
+        rows = "".join(
+            f'<tr><td>{cands.index(c) + 1}</td><td>{e(c.get("name"))}</td><td>{e(c.get("score"))}</td>'
+            f'<td class="small">{e(c.get("reason"))}</td></tr>'
+            for c in rest
+        )
+        out.append(
+            f'<details class="more"><summary>Also screened ({len(rest)}) and why not now</summary>'
+            '<div class="table-wrap"><table><caption class="sr-only">Other candidates</caption>'
+            f'<thead><tr><th scope="col">#</th><th scope="col">{"Industry" if noun == "industries" else "Segment"}</th>'
+            '<th scope="col">Score</th><th scope="col">Why not now</th></tr></thead>'
+            f"<tbody>{rows}</tbody></table></div></details>"
+        )
+    return "".join(out)
 
 
 def render_sources(plan, check) -> str:
@@ -199,10 +261,6 @@ def render_ideas(top10, redteam, ev_index) -> str:
             outcome = v.get("outcome", "")
             badge = f'<span class="tag {"survive" if outcome == "survive" else "killed"}">{"Survived red team" if outcome == "survive" else "Killed"}</span>'
         score = idea.get("score")
-        try:
-            pct = max(0, min(100, float(score)))
-        except (TypeError, ValueError):
-            pct = 0
         scores = idea.get("scores") or {}
         breakdown = "".join(f"<li><span>{e(k)}</span><span>{e(val)}/5</span></li>" for k, val in scores.items())
         risks = "".join(f"<li>{e(r)}</li>" for r in idea.get("risks") or [])
@@ -225,9 +283,11 @@ def render_ideas(top10, redteam, ev_index) -> str:
             f'<li class="idea {"is-killed" if v and v.get("outcome") != "survive" else ""}">'
             '<details><summary>'
             f'<span class="rank">#{e(idea.get("rank"))}</span>'
-            f'<span class="idea-main"><span class="idea-name">{e(idea.get("name"))}</span>'
+            f'<span class="idea-main">'
+            + (f'<span class="ind">{e(idea.get("industry"))}</span>' if idea.get("industry") else "")
+            + f'<span class="idea-name">{e(idea.get("name"))}</span>'
             f'<span class="idea-line">{e(idea.get("one_liner"))}</span></span>'
-            f'<span class="idea-side"><span class="score" aria-label="Score {e(score)} of 100"><span class="bar"><span style="width:{pct:.0f}%"></span></span>{e(score)}</span>{badge}</span>'
+            f'<span class="idea-side">{score_html(score)}{badge}</span>'
             '</summary><div class="idea-body">'
             f'<h4>Why it ranks here</h4><p>{e(idea.get("why"))}</p>'
             + (f'<h4>Score breakdown</h4><ul class="breakdown">{breakdown}</ul>' if breakdown else "")
@@ -254,9 +314,11 @@ def render_pick(pick, top10, ev_index) -> str:
         + "</ul></details>" if others else ""
     )
     return (
-        f'<div class="pick"><p class="kicker">Top pick</p><h3 class="pick-name">{e(pick.get("name"))}</h3>'
+        f'<div class="pick"><p class="kicker">Top pick{" · " + e(pick.get("industry")) if pick.get("industry") else ""}</p>'
+        f'<h3 class="pick-name">{e(pick.get("name"))}</h3>'
         f'<p class="lead">{e(pick.get("one_liner"))}</p></div>'
-        f'<h3>Why this one</h3><p>{e(pick.get("why"))}{cite_inline(pick.get("evidence"), ev_index)}</p>'
+        + (f'<h3>Why this industry</h3><p>{e(pick.get("why_industry"))}</p>' if pick.get("why_industry") else "")
+        + f'<h3>Why this solution</h3><p>{e(pick.get("why"))}{cite_inline(pick.get("evidence"), ev_index)}</p>'
         f'<div class="risk"><h3>Riskiest assumption to test first</h3><p>{e(pick.get("riskiest_assumption"))}</p>'
         f'<dl class="facts">{tdl}</dl></div>{others_html}'
     )
@@ -294,7 +356,8 @@ h3{font-size:1rem;margin:1.25rem 0 .4rem}h4{font-size:.9rem;margin:1rem 0 .3rem;
 .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem 1.5rem;margin:0}
 .facts dt{font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}.facts dd{margin:0}
 ul,ol{padding-left:1.25rem}li{margin:.25rem 0}.plain{padding-left:1.25rem}
-.segments li{margin-bottom:.6rem}.cites{font-size:.8rem;color:var(--muted)}
+.segments li{margin-bottom:.6rem}
+.ind{display:inline-block;font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);margin-bottom:.1rem}.cites{font-size:.8rem;color:var(--muted)}
 .warn{background:var(--warn-soft);color:var(--warn);border-left:4px solid currentColor;border-radius:8px;padding:.75rem 1rem;margin-bottom:1rem}
 .warn ul{margin:.4rem 0 0}.ok{color:var(--ok);margin:.25rem 0 .75rem}
 .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;margin-top:.75rem}
@@ -335,6 +398,7 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;margin-top:2rem}
 
 def render(run: Path) -> str:
     brief = load(run, "brief.json")
+    scan = load(run, "industry_scan.json")
     market = load(run, "market.json")
     plan = load(run, "source_plan.json")
     check = load(run, "source_check.json")
@@ -350,7 +414,7 @@ def render(run: Path) -> str:
         item.setdefault("source_name", src_names.get(item.get("source_id")))
         ev_index[item.get("id")] = item
 
-    done = {"brief": bool(brief), "market": bool(market), "sources": bool(plan),
+    done = {"brief": bool(brief), "scan": bool(scan), "market": bool(market), "sources": bool(plan),
             "ideas": bool(top10), "pick": bool(pick)}
     title = (brief or {}).get("title") or run.name
     example = bool((brief or {}).get("example"))
@@ -361,6 +425,7 @@ def render(run: Path) -> str:
     )
     bodies = {
         "brief": render_brief(brief),
+        "scan": render_scan(scan),
         "market": render_market(market, ev_index),
         "sources": render_sources(plan, check),
         "ideas": render_ideas(top10, redteam, ev_index),

@@ -1,0 +1,335 @@
+{
+  "level": "industry",
+  "summary": "Construction, freight trucking and small-manufacturer supply chains score highest: money is visibly stuck in paperwork, buyers already pay for basic software, and AI products for these exact jobs are rare.",
+  "rubric": [
+    {
+      "criterion": "Pain & money at stake",
+      "weight": 20
+    },
+    {
+      "criterion": "Digital readiness",
+      "weight": 15
+    },
+    {
+      "criterion": "Buyer reachability & sales cycle",
+      "weight": 15
+    },
+    {
+      "criterion": "Willingness to pay for software",
+      "weight": 15
+    },
+    {
+      "criterion": "Competition density (low is good)",
+      "weight": 15
+    },
+    {
+      "criterion": "Why now (rules & rails)",
+      "weight": 10
+    },
+    {
+      "criterion": "Regulatory friction (low is good)",
+      "weight": 10
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Construction & real estate",
+      "score": 81,
+      "scores": {
+        "Pain & money at stake": 5,
+        "Digital readiness": 3,
+        "Buyer reachability & sales cycle": 4,
+        "Willingness to pay for software": 4,
+        "Competition density (low is good)": 4,
+        "Why now (rules & rails)": 4,
+        "Regulatory friction (low is good)": 4
+      },
+      "shortlisted": true,
+      "reason": "Large, visible money at stake (stuck bills, staged loan releases), compliance that recurs every quarter, and few AI products beyond basic site apps.",
+      "one_liner": "Contractors, developers and the lenders who fund them; paper bills, stage inspections, RERA filings.",
+      "signals": [
+        {
+          "text": "Housing lenders release loans in stages after a site inspection",
+          "url": "https://nhb.org.in",
+          "source": "National Housing Bank"
+        },
+        {
+          "text": "Hundreds of open 'billing engineer' roles at contractors",
+          "url": "https://www.naukri.com/billing-engineer-jobs",
+          "source": "Naukri"
+        },
+        {
+          "text": "Developers file quarterly progress on state RERA portals",
+          "url": "https://maharera.maharashtra.gov.in",
+          "source": "MahaRERA"
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "name": "Freight trucking & transport",
+      "score": 78,
+      "scores": {
+        "Pain & money at stake": 5,
+        "Digital readiness": 4,
+        "Buyer reachability & sales cycle": 4,
+        "Willingness to pay for software": 3,
+        "Competition density (low is good)": 3,
+        "Why now (rules & rails)": 4,
+        "Regulatory friction (low is good)": 4
+      },
+      "shortlisted": true,
+      "reason": "Every trip already has a digital trail (e-way bill, FASTag), yet payment waits on a paper proof of delivery. Owners feel cash-flow pain weekly.",
+      "one_liner": "Small fleet owners and transporters; paper PODs and lorry receipts, slow payments.",
+      "signals": [
+        {
+          "text": "E-way bills create a digital record for most goods movements",
+          "url": "https://ewaybillgst.gov.in",
+          "source": "E-way bill portal"
+        },
+        {
+          "text": "Transporters' Hindi YouTube channels discuss payment delays after delivery",
+          "url": "https://www.youtube.com/results?search_query=transport+business+payment+late",
+          "source": "YouTube"
+        },
+        {
+          "text": "ONDC runs a logistics network open to new providers",
+          "url": "https://ondc.org",
+          "source": "ONDC"
+        }
+      ],
+      "rank": 2
+    },
+    {
+      "name": "MSME manufacturing (engineering & auto components)",
+      "score": 77,
+      "scores": {
+        "Pain & money at stake": 4,
+        "Digital readiness": 3,
+        "Buyer reachability & sales cycle": 4,
+        "Willingness to pay for software": 4,
+        "Competition density (low is good)": 4,
+        "Why now (rules & rails)": 3,
+        "Regulatory friction (low is good)": 5
+      },
+      "shortlisted": true,
+      "reason": "Owners already pay for Tally and some ERP, quoting and OEM quality documents eat engineers' time, and few tools target the small supplier.",
+      "one_liner": "Job shops and tier-2/3 suppliers; manual quoting, quality paperwork for OEMs.",
+      "signals": [
+        {
+          "text": "Auto-component suppliers must submit quality documentation to OEMs",
+          "url": "https://www.acma.in",
+          "source": "ACMA"
+        },
+        {
+          "text": "Buyers post RFQs with drawings that suppliers answer by hand",
+          "url": "https://www.indiamart.com",
+          "source": "IndiaMART"
+        },
+        {
+          "text": "Many 'costing / estimation engineer' openings at small manufacturers",
+          "url": "https://www.naukri.com/costing-engineer-jobs",
+          "source": "Naukri"
+        }
+      ],
+      "rank": 3
+    },
+    {
+      "name": "CA & tax practices",
+      "score": 71,
+      "scores": {
+        "Pain & money at stake": 3,
+        "Digital readiness": 5,
+        "Buyer reachability & sales cycle": 4,
+        "Willingness to pay for software": 4,
+        "Competition density (low is good)": 2,
+        "Why now (rules & rails)": 3,
+        "Regulatory friction (low is good)": 4
+      },
+      "shortlisted": false,
+      "reason": "Strong fit for AI but crowded with GST and accounting tools; the clearest gaps are features, not companies.",
+      "rank": 4
+    },
+    {
+      "name": "Textiles & garments (Surat, Tiruppur)",
+      "score": 67,
+      "scores": {
+        "Pain & money at stake": 4,
+        "Digital readiness": 3,
+        "Buyer reachability & sales cycle": 3,
+        "Willingness to pay for software": 3,
+        "Competition density (low is good)": 4,
+        "Why now (rules & rails)": 2,
+        "Regulatory friction (low is good)": 4
+      },
+      "shortlisted": false,
+      "reason": "Real pain in job-work tracking, but buyers are price-sensitive and run on long credit; no clear trigger now.",
+      "rank": 5
+    },
+    {
+      "name": "Jewellery retail & manufacturing",
+      "score": 65,
+      "scores": {
+        "Pain & money at stake": 3,
+        "Digital readiness": 3,
+        "Buyer reachability & sales cycle": 3,
+        "Willingness to pay for software": 3,
+        "Competition density (low is good)": 4,
+        "Why now (rules & rails)": 4,
+        "Regulatory friction (low is good)": 3
+      },
+      "shortlisted": false,
+      "reason": "Hallmarking created new paperwork, but much of it is already handled by government-approved centres.",
+      "rank": 6
+    },
+    {
+      "name": "Pharma distribution & chemists",
+      "score": 64,
+      "scores": {
+        "Pain & money at stake": 4,
+        "Digital readiness": 4,
+        "Buyer reachability & sales cycle": 3,
+        "Willingness to pay for software": 3,
+        "Competition density (low is good)": 2,
+        "Why now (rules & rails)": 3,
+        "Regulatory friction (low is good)": 3
+      },
+      "shortlisted": false,
+      "reason": "Well served by Marg ERP and several funded B2B platforms; thin margins cap software spend.",
+      "rank": 7
+    },
+    {
+      "name": "Hospitals & diagnostic centres (Tier 2)",
+      "score": 62,
+      "scores": {
+        "Pain & money at stake": 4,
+        "Digital readiness": 3,
+        "Buyer reachability & sales cycle": 3,
+        "Willingness to pay for software": 3,
+        "Competition density (low is good)": 3,
+        "Why now (rules & rails)": 3,
+        "Regulatory friction (low is good)": 2
+      },
+      "shortlisted": false,
+      "reason": "Pain is real but clinical and data rules slow sales; funded players already target this segment.",
+      "rank": 8
+    },
+    {
+      "name": "Independent hotels & restaurants",
+      "score": 62,
+      "scores": {
+        "Pain & money at stake": 3,
+        "Digital readiness": 4,
+        "Buyer reachability & sales cycle": 4,
+        "Willingness to pay for software": 3,
+        "Competition density (low is good)": 1,
+        "Why now (rules & rails)": 2,
+        "Regulatory friction (low is good)": 5
+      },
+      "shortlisted": false,
+      "reason": "Petpooja and aggregator tools dominate; switching is cheap but margins are thin.",
+      "rank": 9
+    },
+    {
+      "name": "Schools & coaching institutes",
+      "score": 60,
+      "scores": {
+        "Pain & money at stake": 3,
+        "Digital readiness": 4,
+        "Buyer reachability & sales cycle": 3,
+        "Willingness to pay for software": 3,
+        "Competition density (low is good)": 2,
+        "Why now (rules & rails)": 2,
+        "Regulatory friction (low is good)": 4
+      },
+      "shortlisted": false,
+      "reason": "Fees and attendance software is crowded; AI tutoring is a B2C play outside this playbook.",
+      "rank": 10
+    },
+    {
+      "name": "Kirana & general trade",
+      "score": 58,
+      "scores": {
+        "Pain & money at stake": 3,
+        "Digital readiness": 4,
+        "Buyer reachability & sales cycle": 3,
+        "Willingness to pay for software": 2,
+        "Competition density (low is good)": 1,
+        "Why now (rules & rails)": 3,
+        "Regulatory friction (low is good)": 5
+      },
+      "shortlisted": false,
+      "reason": "Crowded: free tools from Khatabook, Jio and FMCG distributors set the price at zero.",
+      "rank": 11
+    },
+    {
+      "name": "Agriculture & FPOs",
+      "score": 57,
+      "scores": {
+        "Pain & money at stake": 4,
+        "Digital readiness": 2,
+        "Buyer reachability & sales cycle": 2,
+        "Willingness to pay for software": 2,
+        "Competition density (low is good)": 3,
+        "Why now (rules & rails)": 4,
+        "Regulatory friction (low is good)": 3
+      },
+      "shortlisted": false,
+      "reason": "Low willingness to pay; most buying flows through government schemes with long cycles.",
+      "rank": 12
+    },
+    {
+      "name": "Dairy cooperatives",
+      "score": 57,
+      "scores": {
+        "Pain & money at stake": 3,
+        "Digital readiness": 2,
+        "Buyer reachability & sales cycle": 2,
+        "Willingness to pay for software": 3,
+        "Competition density (low is good)": 4,
+        "Why now (rules & rails)": 3,
+        "Regulatory friction (low is good)": 3
+      },
+      "shortlisted": false,
+      "reason": "Buying decisions sit with cooperative boards and state federations; slow sales.",
+      "rank": 13
+    },
+    {
+      "name": "Real estate brokerage",
+      "score": 56,
+      "scores": {
+        "Pain & money at stake": 2,
+        "Digital readiness": 4,
+        "Buyer reachability & sales cycle": 4,
+        "Willingness to pay for software": 2,
+        "Competition density (low is good)": 2,
+        "Why now (rules & rails)": 2,
+        "Regulatory friction (low is good)": 4
+      },
+      "shortlisted": false,
+      "reason": "Brokers spend on listings portals, not workflow tools; pain is lead quality, which portals own.",
+      "rank": 14
+    },
+    {
+      "name": "State and municipal departments",
+      "score": 56,
+      "scores": {
+        "Pain & money at stake": 4,
+        "Digital readiness": 2,
+        "Buyer reachability & sales cycle": 1,
+        "Willingness to pay for software": 3,
+        "Competition density (low is good)": 4,
+        "Why now (rules & rails)": 3,
+        "Regulatory friction (low is good)": 2
+      },
+      "shortlisted": false,
+      "reason": "Hits a kill criterion: only route is long tenders with no pilot path.",
+      "rank": 15
+    }
+  ],
+  "shortlist": [
+    "Construction & real estate",
+    "Freight trucking & transport",
+    "MSME manufacturing (engineering & auto components)"
+  ]
+}

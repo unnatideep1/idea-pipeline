@@ -5,12 +5,12 @@ description: Index finished idea-pipeline runs and search them, so a new run can
 
 # Idea registry
 
-`DATA/registry.json` lists every finished run: title, space, playbook, keywords, top 10 names, the pick, its riskiest assumption, evidence count, productive sources and the run folder path. The evidence itself stays in each run folder.
+`DATA/registry.json` lists every finished run: title, space, playbook, industries screened and shortlisted, keywords, top 10 names, the pick and its industry, its riskiest assumption, evidence count, productive sources and the run folder path. The evidence itself stays in each run folder.
 
 ## Search (start of a run, before writing the brief)
 
 ```
-python "${CLAUDE_PLUGIN_ROOT}/skills/idea-registry/scripts/registry.py" search "<industry, use case, buyer>" \
+python "${CLAUDE_PLUGIN_ROOT}/skills/idea-registry/scripts/registry.py" search "<scope, industry, use case, buyer>" \
   --registry DATA/registry.json [--playbook <name>] [--evidence]
 ```
 
@@ -19,6 +19,7 @@ python "${CLAUDE_PLUGIN_ROOT}/skills/idea-registry/scripts/registry.py" search "
 How to reuse:
 - **Source hunter:** put `productive_sources` from related runs first in the plan.
 - **Researcher:** re-open reused evidence, update `accessed`, and drop anything that no longer holds. Older than 12 months on a fast-moving question = re-research.
+- **Industry scout:** past scans are a head start; re-check any industry whose score could have changed (new rules, new funding).
 - **Analyst:** past top-10 ideas can be candidates again, but are scored fresh.
 
 ## Add (end of a run)

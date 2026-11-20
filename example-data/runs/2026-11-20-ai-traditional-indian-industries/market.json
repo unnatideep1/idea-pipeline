@@ -1,0 +1,49 @@
+{
+  "summary": "Three shortlisted industries where paperwork blocks money: construction (contractors, developers and their lenders), freight trucking (small fleet owners and transporters) and MSME engineering suppliers. All run on WhatsApp, Excel and paper, and all already pay for some software.",
+  "buyer": "Owner or finance head at the business; technical or credit head at lenders",
+  "user": "Site and billing engineers, transport billing staff, costing and quality engineers",
+  "geography": "India; pilots in Maharashtra, Karnataka, Gujarat and Uttar Pradesh",
+  "stage": "Early adopters pay for basic apps (site, GPS, accounting); the AI layer is largely absent",
+  "segments": [
+    {
+      "industry": "Construction",
+      "name": "Housing finance lenders",
+      "size_hint": "Illustrative: 90+ HFCs",
+      "description": "Release construction-linked tranches after site inspections.",
+      "evidence": [
+        "E11",
+        "E12"
+      ]
+    },
+    {
+      "industry": "Construction",
+      "name": "Government-works contractors",
+      "size_hint": "Illustrative: tens of thousands registered on CPPP/GeM",
+      "description": "Heavy measurement-book and running-bill paperwork.",
+      "evidence": [
+        "E03",
+        "E04"
+      ]
+    },
+    {
+      "industry": "Freight trucking",
+      "name": "Small fleet owners and transporters",
+      "size_hint": "Illustrative: most trucks are owned by small fleets",
+      "description": "Invoice shippers after paper proof of delivery; wait weeks for payment.",
+      "evidence": [
+        "E17",
+        "E18"
+      ]
+    },
+    {
+      "industry": "MSME manufacturing",
+      "name": "Tier-2/3 engineering and auto-component suppliers",
+      "size_hint": "Illustrative: lakhs of manufacturing MSMEs on Udyam",
+      "description": "Answer RFQs by hand and assemble OEM quality documents.",
+      "evidence": [
+        "E22",
+        "E23"
+      ]
+    }
+  ]
+}

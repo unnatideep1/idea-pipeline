@@ -1,0 +1,146 @@
+{
+  "founder_fit_checked": false,
+  "rubric_check": "PASS: analyst scores use the india-traditional-ai rubric",
+  "verdicts": [
+    {
+      "idea_id": "I01",
+      "outcome": "survive",
+      "reason": "Survives: buyer already pays per inspection, and no incumbent owns remote verification.",
+      "attacks": [
+        {
+          "test": "Will customers pay",
+          "finding": "Lenders already pay a fee per stage inspection (E12)."
+        },
+        {
+          "test": "Why won't incumbents build it",
+          "finding": "Site apps sell to contractors, not lenders; few funded players here (E16)."
+        },
+        {
+          "test": "Regulatory risk",
+          "finding": "Lenders may still require a physical visit; test this first."
+        }
+      ]
+    },
+    {
+      "idea_id": "I02",
+      "outcome": "survive",
+      "reason": "Clear payer feeling weekly cash pain, a digital trail to match against, and fleet-tech incumbents focused elsewhere.",
+      "attacks": [
+        {
+          "test": "Will customers pay",
+          "finding": "Transporters already pay salaries for billing staff (E19); faster payment is direct cash.",
+          "evidence": [
+            "E19",
+            "E26"
+          ]
+        },
+        {
+          "test": "Why won't incumbents build it",
+          "finding": "Fleet apps focus on GPS and FASTag (E20, E27); could add it, but no sign yet.",
+          "evidence": [
+            "E20",
+            "E27"
+          ]
+        },
+        {
+          "test": "Distribution",
+          "finding": "Transport associations and YouTube channels reach owners cheaply; no evidence of conversion yet.",
+          "evidence": [
+            "E18"
+          ]
+        }
+      ]
+    },
+    {
+      "idea_id": "I03",
+      "outcome": "killed",
+      "reason": "Real pain, but thousands of small contractors and a long trust-building sale; weaker than the POD and quoting tools on speed to 10 customers.",
+      "attacks": [
+        {
+          "test": "Will customers pay",
+          "finding": "Billing staff cost is visible on payroll (E07)."
+        },
+        {
+          "test": "Distribution",
+          "finding": "Thousands of small contractors; needs a channel such as contractor associations."
+        }
+      ]
+    },
+    {
+      "idea_id": "I04",
+      "outcome": "killed",
+      "reason": "Episodic use and a crowded tender-alert market; at best a feature of a billing product.",
+      "attacks": [
+        {
+          "test": "Will customers pay",
+          "finding": "Pays only when a contractor bids often."
+        },
+        {
+          "test": "Why now",
+          "finding": "GeM growth widens the market (E03)."
+        }
+      ]
+    },
+    {
+      "idea_id": "I05",
+      "outcome": "survive",
+      "reason": "Owners pay engineers to quote today and lose orders to slow replies; few tools target small job shops.",
+      "attacks": [
+        {
+          "test": "Will customers pay",
+          "finding": "Costing engineers are a paid role (E25); a faster quote wins orders.",
+          "evidence": [
+            "E25"
+          ]
+        },
+        {
+          "test": "Regulatory and data risk",
+          "finding": "Low; buyers' drawings need confidentiality terms.",
+          "evidence": []
+        },
+        {
+          "test": "Why won't incumbents build it",
+          "finding": "IndiaMART could add AI quoting; no evidence it plans to.",
+          "evidence": [
+            "E24"
+          ]
+        }
+      ]
+    },
+    {
+      "idea_id": "I06",
+      "outcome": "killed",
+      "reason": "Killed: consultants file for a few thousand rupees a quarter; hard to beat on price.",
+      "attacks": []
+    },
+    {
+      "idea_id": "I07",
+      "outcome": "killed",
+      "reason": "Narrow buyer set and OEM-specific formats make it a services business.",
+      "attacks": []
+    },
+    {
+      "idea_id": "I08",
+      "outcome": "killed",
+      "reason": "Accuracy risk on varied parts, and global vision vendors are moving down-market.",
+      "attacks": []
+    },
+    {
+      "idea_id": "I09",
+      "outcome": "killed",
+      "reason": "Hits a kill criterion: funded load boards already serve this, and ONDC logistics adoption is still early.",
+      "attacks": []
+    },
+    {
+      "idea_id": "I10",
+      "outcome": "killed",
+      "reason": "Owners won't pay for trip logs alone; fleet apps can add voice in one release.",
+      "attacks": []
+    }
+  ],
+  "survivors": [
+    "I01",
+    "I02",
+    "I05"
+  ]
+}

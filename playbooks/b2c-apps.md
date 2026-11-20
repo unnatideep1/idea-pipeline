@@ -45,6 +45,23 @@ Use this when the user and the payer are individual consumers. Revenue comes fro
 - **Platform shifts:** new OS features, on-device AI, new payment rails (UPI autopay) that open a gap.
 - **Search without a good answer:** high search volume with weak or old apps in the results.
 
+## Industry screen
+
+Used by the industry scout before any deep research. Score each candidate 1-5; weights sum to 100; total = sum(score x weight) / 5. Every 4 or 5 needs a signal with a URL. Shortlist about 3.
+
+Candidates are **consumer segments** (who, with which need), e.g. "Indian Gen-Z exam aspirants", "new parents in metro India", "US freelancers managing taxes".
+
+| Criterion | Weight | 5 means | 1 means |
+|---|---|---|---|
+| Spending power & willingness to pay | 20 | Segment already pays for apps or subscriptions for this need | Expects everything free; ad-supported only |
+| Size & growth | 15 | Large segment that is visibly growing | Small or shrinking |
+| Reachability (organic channels) | 20 | Clear organic channels: search terms, communities, creators, app-store keywords | Only reachable through paid ads |
+| Competition density (low is good) | 15 | Top charts for the need are thin or dated | Dominated by well-funded, well-reviewed apps |
+| Unmet complaints | 15 | Many recent 1-3 star reviews and forum threads about the same gap | Users seem satisfied |
+| Newcomer success | 15 | Apps launched in the last 2 years are climbing charts or revenue estimates | No newcomer has broken in |
+
+Example longlist: students and exam prep, fitness and health tracking, parenting, personal finance, language learning, dating and social, travel planning, small creators, pet owners, older adults and caregivers, hobby learners, home and cooking.
+
 ## Scoring rubric
 
 Score each criterion 1-5. Weights sum to 100. Total = sum(score x weight) / 5, out of 100. Every 4 or 5 must cite evidence ids.

@@ -200,6 +200,148 @@
         "Q8"
       ],
       "accessed": "2026-11-20"
+    },
+    {
+      "id": "E17",
+      "claim": "An e-way bill is needed for most goods movements above a value threshold.",
+      "source_id": "S20",
+      "url": "https://ewaybillgst.gov.in",
+      "accessed": "2026-11-20",
+      "quote": "Illustrative placeholder: e-way bill required for consignments above the notified value.",
+      "confidence": "high",
+      "questions": [
+        "Q5",
+        "Q6"
+      ]
+    },
+    {
+      "id": "E18",
+      "claim": "Transporters say shippers pay only after the physical POD arrives, often weeks later.",
+      "source_id": "S21",
+      "url": "https://www.youtube.com/results?search_query=transport+business+payment+late",
+      "accessed": "2026-11-20",
+      "quote": "Illustrative placeholder: 'POD jab tak nahi pahunchta, payment nahi aata.'",
+      "confidence": "low",
+      "questions": [
+        "Q1",
+        "Q7"
+      ]
+    },
+    {
+      "id": "E19",
+      "claim": "Many transport companies hire billing and POD executives.",
+      "source_id": "S22",
+      "url": "https://www.naukri.com/logistics-billing-executive-jobs",
+      "accessed": "2026-11-20",
+      "quote": "Illustrative placeholder: several hundred open roles mention POD collection and freight billing.",
+      "confidence": "medium",
+      "questions": [
+        "Q1",
+        "Q2"
+      ]
+    },
+    {
+      "id": "E20",
+      "claim": "Fleet app reviews focus on GPS and FASTag; few mention invoicing or POD.",
+      "source_id": "S23",
+      "url": "https://play.google.com/store/search?q=fleet%20management%20india&c=apps",
+      "accessed": "2026-11-20",
+      "quote": "Illustrative placeholder: review themes are tracking accuracy and FASTag recharge.",
+      "confidence": "medium",
+      "questions": [
+        "Q4",
+        "Q8"
+      ]
+    },
+    {
+      "id": "E21",
+      "claim": "ONDC's logistics network accepts new logistics service providers.",
+      "source_id": "S24",
+      "url": "https://ondc.org",
+      "accessed": "2026-11-20",
+      "quote": "Illustrative placeholder: logistics providers can join as network participants.",
+      "confidence": "high",
+      "questions": [
+        "Q3",
+        "Q6"
+      ]
+    },
+    {
+      "id": "E22",
+      "claim": "Manufacturing MSMEs on Udyam number in the lakhs.",
+      "source_id": "S25",
+      "url": "https://udyamregistration.gov.in",
+      "accessed": "2026-11-20",
+      "quote": "Illustrative placeholder: manufacturing share of Udyam registrations.",
+      "confidence": "high",
+      "questions": [
+        "Q3"
+      ]
+    },
+    {
+      "id": "E23",
+      "claim": "OEMs require suppliers to submit quality documentation before parts are approved.",
+      "source_id": "S26",
+      "url": "https://www.acma.in",
+      "accessed": "2026-11-20",
+      "quote": "Illustrative placeholder: supplier quality and PPAP expectations.",
+      "confidence": "high",
+      "questions": [
+        "Q1",
+        "Q5"
+      ]
+    },
+    {
+      "id": "E24",
+      "claim": "Buyers post RFQs with drawings; suppliers estimate and reply manually.",
+      "source_id": "S27",
+      "url": "https://www.indiamart.com",
+      "accessed": "2026-11-20",
+      "quote": "Illustrative placeholder: RFQ with attached drawing, quantity and delivery date.",
+      "confidence": "medium",
+      "questions": [
+        "Q1",
+        "Q3"
+      ]
+    },
+    {
+      "id": "E25",
+      "claim": "Small manufacturers hire costing and estimation engineers to prepare quotes.",
+      "source_id": "S28",
+      "url": "https://www.naukri.com/costing-engineer-jobs",
+      "accessed": "2026-11-20",
+      "quote": "Illustrative placeholder: openings at firms with under 200 staff.",
+      "confidence": "medium",
+      "questions": [
+        "Q1",
+        "Q2"
+      ]
+    },
+    {
+      "id": "E26",
+      "claim": "Delayed payments are a leading working-capital stress for MSMEs.",
+      "source_id": "S29",
+      "url": "https://www.sidbi.in",
+      "accessed": "2026-11-20",
+      "quote": "Illustrative placeholder: share of MSMEs reporting delayed receivables.",
+      "confidence": "high",
+      "questions": [
+        "Q1",
+        "Q2"
+      ]
+    },
+    {
+      "id": "E27",
+      "claim": "Fleet-tech funding has gone mainly to GPS, FASTag and load boards, not billing.",
+      "source_id": "S30",
+      "url": "https://inc42.com",
+      "accessed": "2026-11-20",
+      "quote": "Illustrative placeholder: funded fleet-tech startups by focus area.",
+      "confidence": "medium",
+      "questions": [
+        "Q8",
+        "Q9"
+      ]
     }
   ]
 }

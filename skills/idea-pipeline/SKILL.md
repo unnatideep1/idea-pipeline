@@ -1,11 +1,13 @@
 ---
 name: idea-pipeline
-description: Run the end-to-end idea-identification pipeline for any business-idea brief (B2C apps, traditional Indian industries adopting AI, B2B SaaS or a new space) - brief, source hunting and checking, evidence collection, top-10 scoring, red-team kill gate and one entrepreneur's pick, shown on a progressive HTML dashboard. Use when the user wants to find, explore, compare or validate business or startup ideas in a space.
+description: Run the end-to-end idea-identification pipeline for any business-idea brief (B2C apps, traditional Indian industries adopting AI, B2B SaaS or a new space) - brief, an industry scan that finds the lowest-hanging-fruit industries, source hunting and checking, evidence collection, top-10 scoring, red-team kill gate and one entrepreneur's pick, shown on a progressive HTML dashboard. Use when the user wants to find, explore, compare or validate business or startup ideas in a space.
 ---
 
 # Idea pipeline (orchestrator)
 
-You coordinate six agents and keep the user in control at three checkpoints. You talk to the user; the agents don't. You write the brief yourself; you never hunt sources, research, score, red-team or pick.
+You coordinate seven agents and keep the user in control at three checkpoints. You talk to the user; the agents don't. You write the brief yourself; you never scan industries, hunt sources, research, score, red-team or pick.
+
+**Find the industry; don't assume it.** The goal is the industry that is the lowest-hanging fruit *and* the solution with the highest chance of success. So the brief sets the scope only. The industry scout screens many industries (or the segments of one, if the user named it) and shortlists about 3. Every later stage works across that shortlist, and the pick names both the industry and the solution.
 
 ## Paths
 
@@ -15,28 +17,30 @@ You coordinate six agents and keep the user in control at three checkpoints. You
   - `playbooks/` - playbooks the user approved for new spaces; a file here overrides the plugin's file with the same name
   - `founder_profile.md` - **optional**. Only if the user provides one; never ask for it as a requirement
   - `runs/<yyyy-mm-dd>-<slug>/` - one folder per run:
-    `brief.md`, `brief.json`, `market.json`, `source_plan.json`, `source_check.json`, `checker_list.json`, `evidence.json`, `top10.json`, `redteam.json`, `pick.json`, `source_yield.json`, `playbook_proposals.md`, `dashboard.html`
+    `brief.md`, `brief.json`, `industry_scan.json`, `market.json`, `source_plan.json`, `source_check.json`, `checker_list.json`, `evidence.json`, `top10.json`, `redteam.json`, `pick.json`, `source_yield.json`, `playbook_proposals.md`, `dashboard.html`
 
 JSON shapes are defined in `${CLAUDE_PLUGIN_ROOT}/skills/render-dashboard/SKILL.md`. Every agent writes only inside the run folder.
 
 ## Pipeline
 
 1. **Brief** (you).
-   - Turn the user's free text into a one-page brief: space, industry, use case, geography (default **India**), buyer, user, business model, constraints, goal / definition of success. Ask at most two short questions, only for things you can't sensibly default.
+   - Turn the user's free text into a one-page brief: space, **scope** (what's in and out), industry, use case, geography (default **India**), buyer, user, business model, constraints, goal / definition of success. Ask at most two short questions, only for things you can't sensibly default.
+   - **Don't narrow the industry yourself.** If the user didn't name one, set `industry` to "Open (decided by the industry scan)" and leave buyer and use case broad. If they did name one, keep it; the scout then screens its segments.
    - Classify the space and pick a playbook: first `DATA/playbooks/`, then `PLUGIN/playbooks/` (`b2c-apps`, `india-traditional-ai`, `b2b-saas`). A brief may name a secondary playbook (e.g. B2B SaaS for Indian manufacturers).
    - **No matching playbook?** Draft one from `PLUGIN/playbooks/_template.md`, show it, and ask the user to approve it **once**. Save the approved file to `DATA/playbooks/<name>.md` for future runs.
-   - Search the registry: `python "${CLAUDE_PLUGIN_ROOT}/skills/idea-registry/scripts/registry.py" search "<industry + use case>" --registry DATA/registry.json --evidence`. Note related runs in the brief under `prior_runs`.
+   - Search the registry: `python "${CLAUDE_PLUGIN_ROOT}/skills/idea-registry/scripts/registry.py" search "<scope + industry + use case>" --registry DATA/registry.json --evidence`. Note related runs in the brief under `prior_runs`.
    - Write `brief.md` (human, one page) and `brief.json`, render the dashboard.
    - **Checkpoint 1:** the user approves the brief. Record `"approved": "<date>"` in `brief.json`.
-2. **Source hunter** (agent `source-hunter`) → `market.json`, `source_plan.json`. It may return **one** blocking question if something critical is ambiguous; ask the user, pass the answer back. Render.
-3. **Source checker** (agent `source-checker`) → `checker_list.json`, `source_check.json`. If the verdict is a gap list, send it to the hunter to fix, then re-check. **Max 2 rounds, no user pause.** Unresolved gaps stay in `source_check.json` and show as a warning on the dashboard. Render.
-4. **Researcher** (agent `researcher`) → `evidence.json`. Then ask the hunter to write `source_yield.json` and `playbook_proposals.md` (which sources actually produced evidence). Render.
-5. **Analyst** (agent `analyst`) → `top10.json`. Render.
-   **Checkpoint 2:** show the dashboard and a 10-line summary (rank, name, score). The user may drop, add or merge ideas; send changes back to the analyst, then continue.
-6. **Red team** (agent `red-team`) → `redteam.json`, about 3 survivors. If it rejects the scoring (not on the playbook rubric), send the analyst back once, then re-run. Founder fit runs **only** if `DATA/founder_profile.md` exists. Render.
-7. **Entrepreneur** (agent `entrepreneur`) → `pick.json`. Render.
-   **Checkpoint 3:** show the pick, why, and the riskiest assumption with its test. Apply only changes the user asks for.
-8. **Close the run:** register it (`registry.py add DATA/runs/<run>`), and if `playbook_proposals.md` has proposals, ask the user whether to apply them to `DATA/playbooks/<name>.md` (copy the plugin playbook there first if it isn't already).
+2. **Industry scout** (agent `industry-scout`) → `industry_scan.json`: a longlist of 12-20 industries (or segments) scored on the playbook's `Industry screen` rubric, with about 3 shortlisted and a "why not now" for the rest. It may return **one** question if the scope is too wide to screen. Render.
+3. **Source hunter** (agent `source-hunter`) → `market.json`, `source_plan.json`, covering **every shortlisted industry**. It may return **one** blocking question if something critical is ambiguous; ask the user, pass the answer back. Render.
+4. **Source checker** (agent `source-checker`) → `checker_list.json`, `source_check.json`. If the verdict is a gap list, send it to the hunter to fix, then re-check. **Max 2 rounds, no user pause.** Unresolved gaps stay in `source_check.json` and show as a warning on the dashboard. Render.
+5. **Researcher** (agent `researcher`) → `evidence.json`. Then ask the hunter to write `source_yield.json` and `playbook_proposals.md` (which sources actually produced evidence). Render.
+6. **Analyst** (agent `analyst`) → `top10.json`, ideas drawn from all shortlisted industries and ranked on score alone. Render.
+   **Checkpoint 2:** show the dashboard and a 10-line summary (rank, industry, name, score). The user may drop, add or merge ideas, or swap an industry in or out of the shortlist (then re-run from step 3 for that industry only); send changes back, then continue.
+7. **Red team** (agent `red-team`) → `redteam.json`, about 3 survivors. If it rejects the scoring (not on the playbook rubric), send the analyst back once, then re-run. Founder fit runs **only** if `DATA/founder_profile.md` exists. Render.
+8. **Entrepreneur** (agent `entrepreneur`) → `pick.json`. Render.
+   **Checkpoint 3:** show the pick (industry and solution), why this industry, why this solution, and the riskiest assumption with its test. Apply only changes the user asks for.
+9. **Close the run:** register it (`registry.py add DATA/runs/<run>`), and if `playbook_proposals.md` has proposals, ask the user whether to apply them to `DATA/playbooks/<name>.md` (copy the plugin playbook there first if it isn't already).
 
 **Render after every stage:**
 

@@ -1,7 +1,7 @@
 {
   "name": "idea-pipeline",
-  "version": "0.1.0",
-  "description": "Turn any business-idea brief into one researched top pick: brief, smart source hunting with an independent checker, an evidence log, a scored top 10, a red-team kill gate and an entrepreneur's pick, rendered as a progressive HTML dashboard.",
+  "version": "0.2.0",
+  "description": "Turn any business-idea brief into one researched top pick: brief, an industry scan that finds the lowest-hanging-fruit industries, smart source hunting with an independent checker, an evidence log, a scored top 10, a red-team kill gate and an entrepreneur's pick, rendered as a progressive HTML dashboard.",
   "author": {
     "name": "Unnati Deep"
   },

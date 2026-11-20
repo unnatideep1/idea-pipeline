@@ -41,8 +41,11 @@ def cmd_add(args) -> int:
     pick = load_json(run / "pick.json", {})
     evidence = load_json(run / "evidence.json", {}).get("items", [])
     yield_ = load_json(run / "source_yield.json", {})
+    scan = load_json(run / "industry_scan.json", {})
+    screened = [c.get("name") for c in scan.get("candidates", [])]
 
-    text = " ".join(str(brief.get(k, "")) for k in ("title", "industry", "use_case", "buyer", "user", "geography", "business_model"))
+    text = " ".join(str(brief.get(k, "")) for k in ("title", "scope", "industry", "use_case", "buyer", "user", "geography", "business_model"))
+    text += " " + " ".join(str(n) for n in screened)
     entry = {
         "slug": run.name,
         "path": str(run),
@@ -51,10 +54,13 @@ def cmd_add(args) -> int:
         "space": brief.get("space"),
         "playbook": brief.get("playbook"),
         "industry": brief.get("industry"),
+        "industries_screened": screened,
+        "shortlist": scan.get("shortlist", []),
         "geography": brief.get("geography"),
         "keywords": sorted(words(text)),
         "top10": [i.get("name") for i in top10.get("ideas", [])],
         "pick": pick.get("name"),
+        "pick_industry": pick.get("industry"),
         "riskiest_assumption": pick.get("riskiest_assumption"),
         "evidence_count": len(evidence),
         "productive_sources": yield_.get("productive", []),
@@ -85,7 +91,9 @@ def cmd_search(args) -> int:
         return 0
     for score, overlap, r in hits:
         print(f"- {r['slug']} ({r.get('date')}) · {r.get('title')} · playbook {r.get('playbook')} · match: {', '.join(overlap)}")
-        print(f"  pick: {r.get('pick')} · evidence items: {r.get('evidence_count')} · path: {r.get('path')}")
+        if r.get("shortlist"):
+            print(f"  shortlist: {', '.join(r['shortlist'])}")
+        print(f"  pick: {r.get('pick')} ({r.get('pick_industry') or r.get('industry')}) · evidence items: {r.get('evidence_count')} · path: {r.get('path')}")
         if args.evidence:
             items = load_json(Path(r["path"]) / "evidence.json", {}).get("items", [])
             for it in items:

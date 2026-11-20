@@ -48,6 +48,24 @@ Use this when the buyer is an Indian business or government body in a sector tha
 - **New public rails:** a rail that makes a previously hard step cheap (UPI for payments, AA for financial data, ULI for lending data, ONDC for discovery, Bhashini for language). Build on new rails, like Razorpay on UPI.
 - **Government pull:** GeM categories or tenders asking for this capability; scheme money (PLI, Smart Cities, PMAY).
 
+## Industry screen
+
+Used by the industry scout before any deep research. Score each candidate 1-5; weights sum to 100; total = sum(score x weight) / 5. Every 4 or 5 needs a signal with a URL. Shortlist about 3.
+
+Candidates are **industries** (or, if the brief names one, its segments).
+
+| Criterion | Weight | 5 means | 1 means |
+|---|---|---|---|
+| Pain & money at stake | 20 | Large, visible rupee loss or cost tied to paper, delays or labour | Small or hard-to-measure pain |
+| Digital readiness | 15 | Buyers already use smartphones, WhatsApp, Tally or basic SaaS at work | Mostly offline; no device or data trail |
+| Buyer reachability & sales cycle | 15 | Owners or departments reachable through associations, clusters or online; buy in weeks | Fragmented, hard to reach, or tender-only |
+| Willingness to pay for software | 15 | Already pays for software or services for this kind of work | Expects free tools or government schemes |
+| Competition density (low is good) | 15 | Few AI products aimed at its core jobs | Many funded startups and incumbents |
+| Why now (rules & rails) | 10 | A new rule, rail (UPI, ONDC, AA, ULI, GSTN, Bhashini) or cost drop in the last 2 years | Nothing has changed recently |
+| Regulatory friction (low is good) | 10 | Few approvals needed to sell or use the product | Heavy licensing, data or procurement rules |
+
+Example longlist: construction & real estate, freight trucking, MSME manufacturing clusters, textiles & garments, jewellery, pharma distribution, Tier-2 hospitals & diagnostics, hotels & restaurants, schools & coaching, kirana & general trade, agriculture & FPOs, dairy cooperatives, CA & tax practices, real estate brokerage, state and municipal departments.
+
 ## Scoring rubric
 
 Score each criterion 1-5. Weights sum to 100. Total = sum(score x weight) / 5, out of 100. Every 4 or 5 must cite evidence ids.

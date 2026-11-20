@@ -7,18 +7,20 @@ description: Decompose an approved idea brief into research questions and build 
 
 The quality of the whole run depends on this step. A generic plan ("industry reports", "news") is a failure. Every source must be something a researcher can open tomorrow.
 
-Inputs: `RUN/brief.json`, the playbook(s) it names, `DATA/registry.json` (past runs). Outputs: `RUN/market.json`, `RUN/source_plan.json`. Later: `RUN/source_yield.json`, `RUN/playbook_proposals.md`.
+Inputs: `RUN/brief.json`, `RUN/industry_scan.json` (the shortlist), the playbook(s) it names, `DATA/registry.json` (past runs). Outputs: `RUN/market.json`, `RUN/source_plan.json`. Later: `RUN/source_yield.json`, `RUN/playbook_proposals.md`.
 
 ## 1. Decompose the brief
 
-Write down, for yourself: industry, segment (by size, region, sub-vertical), country and states/cities, buyer (who signs), user (who uses), business model, stage of the market (nascent / growing / mature / being disrupted).
+Work across **every industry in `industry_scan.json → shortlist`**, not just the top scorer. The run's job is to find the best industry *and* solution, so each shortlisted industry needs a fair plan.
+
+Write down, for yourself, per shortlisted industry: industry, segment (by size, region, sub-vertical), country and states/cities, buyer (who signs), user (who uses), business model, stage of the market (nascent / growing / mature / being disrupted).
 
 - If something **critical** is ambiguous and the wrong guess would waste the run (e.g. "construction" = residential developers or government contractors?), return **one** question to the orchestrator and stop. Otherwise state your assumption in `market.json → notes` and continue.
-- Write `market.json`: summary, buyer, user, geography, stage, 2-4 segments with a size hint. Mark size hints as estimates until the researcher sources them.
+- Write `market.json`: summary, buyer, user, geography, stage, and segments (1-2 per shortlisted industry, each with an `industry` field) with a size hint. Mark size hints as estimates until the researcher sources them.
 
 ## 2. List the research questions
 
-Cover at least: pain and its size, demand, competition, pricing / willingness to pay, regulation, trends, why now, white space, rising products, newcomer success. Add the playbook's space-specific questions. Phrase each as a question a source can answer ("Which tasks do RERA-registered developers file every quarter?"), not a topic.
+Cover at least: pain and its size, demand, competition, pricing / willingness to pay, regulation, trends, why now, white space, rising products, newcomer success. Add the playbook's space-specific questions. Keep questions generic across industries where you can ("Where is money stuck in paperwork?") and answer them per industry through the sources. Phrase each as a question a source can answer ("Which tasks do RERA-registered developers file every quarter?"), not a topic.
 
 ## 3. Map questions → source types → named sources
 
@@ -42,12 +44,13 @@ Open each URL (or search result) to confirm it exists and is about what you clai
 
 ## 5. Coverage rules
 
-- Each question needs **≥3 independent source types** (three vendors' blogs count as one type).
+- Each question needs **≥3 independent source types** (three vendors' blogs count as one type) **for each shortlisted industry**.
+- Tag every source with `industries` (the shortlisted industries it informs; cross-industry sources list all of them).
 - At least one local-language source when users or buyers work in Indian languages.
 - At least one customer-voice and one demand-signal source per run.
 - List anything you couldn't cover in `gaps`, with why.
 
-Write `source_plan.json` (shape in the render-dashboard skill): `questions`, `sources` (`id`, `name`, `url`, `type`, `questions`, `why`, `credibility`, `recency`, `bias`, `access`, `india_relevance`), `gaps`.
+Write `source_plan.json` (shape in the render-dashboard skill): `shortlist`, `questions`, `sources` (`id`, `name`, `url`, `type`, `industries`, `questions`, `why`, `credibility`, `recency`, `bias`, `access`, `india_relevance`), `gaps`.
 
 ## 6. Fixing checker gaps
 

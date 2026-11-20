@@ -7,7 +7,7 @@ description: Independently audit an idea-pipeline source plan - draft your own s
 
 You are independent. Your value comes from **not** being anchored by the hunter's plan.
 
-Inputs: `RUN/brief.json`, `RUN/market.json`, the playbook(s). Then, and only then, `RUN/source_plan.json`. Outputs: `RUN/checker_list.json`, `RUN/source_check.json`.
+Inputs: `RUN/brief.json`, `RUN/industry_scan.json`, `RUN/market.json`, the playbook(s). Then, and only then, `RUN/source_plan.json`. Outputs: `RUN/checker_list.json`, `RUN/source_check.json`.
 
 ## 1. Blind draft (before opening source_plan.json)
 
@@ -19,7 +19,7 @@ Open `source_plan.json`. Note:
 - sources you listed that the hunter missed and that would add a **new type or a stronger primary source** (not just more of the same);
 - questions you asked that the hunter didn't.
 
-## 3. Coverage checklist, per question
+## 3. Coverage checklist, per question and per shortlisted industry
 
 Mark each type covered / missing / not applicable:
 
@@ -32,7 +32,7 @@ Mark each type covered / missing / not applicable:
 - Academic
 - Local-language sources (required when users work in Indian languages)
 
-A question fails if it has fewer than **3 independent source types**.
+A question fails if it has fewer than **3 independent source types** for any shortlisted industry. Flag a plan that is lopsided (most sources serve one industry), since that quietly decides the winner before research.
 
 ## 4. Bias check
 

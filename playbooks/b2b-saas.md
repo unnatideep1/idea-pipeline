@@ -45,6 +45,24 @@ Use this when a business pays a recurring fee for software. It's a starting poin
 - **Job posts for the manual role:** companies hiring people to do what software could do.
 - **Unbundling:** one module of a big suite used heavily and disliked; a focused tool can win.
 
+## Industry screen
+
+Used by the industry scout before any deep research. Score each candidate 1-5; weights sum to 100; total = sum(score x weight) / 5. Every 4 or 5 needs a signal with a URL. Shortlist about 3.
+
+Candidates are **verticals or job functions** (e.g. "independent dental clinics", "finance teams at 50-500 person companies", "Shopify merchants doing 1-10 crore").
+
+| Criterion | Weight | 5 means | 1 means |
+|---|---|---|---|
+| Number of businesses & budget | 20 | Many businesses with a budget line for software | Few buyers or no software budget |
+| Spreadsheet / manual workarounds | 15 | Core work still runs on Excel, email or WhatsApp | Already well served by software |
+| Incumbent dissatisfaction | 15 | Bad G2/Capterra reviews, price-hike complaints, ignored segment | Users happy with incumbents |
+| Reachability | 15 | Reachable through marketplaces, communities, associations or search | Only via enterprise field sales |
+| Sales cycle | 15 | Buyer is the user or the owner; buys in weeks | Committee purchase, 6+ months |
+| Platform shift / why now | 10 | A new API, rule or platform change in the last 2 years | Nothing has changed |
+| Newcomer success | 10 | Startups launched in the last 3 years are growing in this vertical | No newcomer traction |
+
+Example longlist: clinics, law firms, accounting practices, agencies, e-commerce merchants, logistics operators, schools, property managers, recruiters, field-service businesses, finance teams, HR teams, sales teams.
+
 ## Scoring rubric
 
 Score each criterion 1-5. Weights sum to 100. Total = sum(score x weight) / 5, out of 100. Every 4 or 5 must cite evidence ids.

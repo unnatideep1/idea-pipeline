@@ -11,12 +11,12 @@
   ],
   "why_not_others": [
     {
-      "name": "RA bill autopilot",
-      "reason": "Strong pain, but thousands of small buyers and a long trust-building sale."
+      "name": "POD-to-payment autopilot (freight trucking)",
+      "reason": "A close second with strong pain, but thousands of small buyers and the risk that shippers still demand paper originals. Worth a parallel 2-week interview sprint."
     },
     {
-      "name": "GeM/CPPP bid copilot",
-      "reason": "Real demand, but usage is episodic; better as a feature of the billing product."
+      "name": "RFQ-to-quote copilot (MSME manufacturing)",
+      "reason": "Real demand, but each shop's cost model needs calibration, which slows the first 10 customers."
     }
   ],
   "riskiest_assumption": "Lenders will accept geotagged photo evidence plus AI checks in place of (or before) a physical visit by an empanelled engineer.",
@@ -25,5 +25,7 @@
     "success_signal": "3 lenders agree to a paid pilot; AI verdict matches the engineer's in 90% of cases",
     "cost": "Under ₹1 lakh",
     "duration": "4 weeks"
-  }
+  },
+  "industry": "Construction (housing finance)",
+  "why_industry": "Construction scored highest in the industry scan: money is visibly stuck behind paperwork and inspections, compliance recurs every quarter, and few AI products serve it. Within it, lenders are the easiest buyers: a few dozen institutions with budgets, not thousands of small contractors."
 }

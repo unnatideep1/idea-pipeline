@@ -1,0 +1,342 @@
+{
+  "playbook": "india-traditional-ai",
+  "rubric": [
+    {
+      "criterion": "Pain & money at stake",
+      "weight": 20
+    },
+    {
+      "criterion": "Who buys & willingness to pay",
+      "weight": 15
+    },
+    {
+      "criterion": "Sales cycle",
+      "weight": 10
+    },
+    {
+      "criterion": "Integration effort",
+      "weight": 10
+    },
+    {
+      "criterion": "Competition & white space",
+      "weight": 15
+    },
+    {
+      "criterion": "Why now (incl. public rails)",
+      "weight": 15
+    },
+    {
+      "criterion": "Newcomer success",
+      "weight": 5
+    },
+    {
+      "criterion": "Need for change",
+      "weight": 10
+    }
+  ],
+  "ideas": [
+    {
+      "id": "I01",
+      "name": "Lender tranche inspections",
+      "one_liner": "Remote, photo- and AI-verified construction progress checks for housing lenders.",
+      "score": 90,
+      "scores": {
+        "Pain & money at stake": 5,
+        "Who buys & willingness to pay": 5,
+        "Sales cycle": 3,
+        "Integration effort": 4,
+        "Competition & white space": 5,
+        "Why now (incl. public rails)": 5,
+        "Newcomer success": 3,
+        "Need for change": 4
+      },
+      "why": "Lenders already pay for every inspection, the trigger is recurring, and ULI gives a standard way to plug in.",
+      "risks": [
+        "Lenders may insist on a physical visit for compliance"
+      ],
+      "evidence": [
+        "E11",
+        "E12",
+        "E13",
+        "E16"
+      ],
+      "rank": 1,
+      "industry": "Construction"
+    },
+    {
+      "id": "I02",
+      "industry": "Freight trucking",
+      "name": "POD-to-payment autopilot",
+      "one_liner": "Reads photographed PODs and lorry receipts, matches them to e-way bills and raises invoices the same day.",
+      "score": 84,
+      "scores": {
+        "Pain & money at stake": 5,
+        "Who buys & willingness to pay": 4,
+        "Sales cycle": 4,
+        "Integration effort": 4,
+        "Competition & white space": 4,
+        "Why now (incl. public rails)": 4,
+        "Newcomer success": 4,
+        "Need for change": 4
+      },
+      "why": "Payment waits on paper proof of delivery, transporters hire staff just to chase it, and the e-way bill already gives a digital record to match against.",
+      "risks": [
+        "Shippers may still insist on originals",
+        "Thousands of small buyers"
+      ],
+      "evidence": [
+        "E17",
+        "E18",
+        "E19",
+        "E20",
+        "E26"
+      ],
+      "rank": 2
+    },
+    {
+      "id": "I03",
+      "name": "RA bill autopilot",
+      "one_liner": "Turns site measurements into certified running-account bills for government contractors.",
+      "score": 80,
+      "scores": {
+        "Pain & money at stake": 5,
+        "Who buys & willingness to pay": 4,
+        "Sales cycle": 3,
+        "Integration effort": 4,
+        "Competition & white space": 4,
+        "Why now (incl. public rails)": 3,
+        "Newcomer success": 3,
+        "Need for change": 5
+      },
+      "why": "Billing delays hit cash flow directly and the workflow is manual Excel today.",
+      "risks": [
+        "Engineer-in-charge certification stays manual"
+      ],
+      "evidence": [
+        "E04",
+        "E07",
+        "E08",
+        "E09"
+      ],
+      "rank": 3,
+      "industry": "Construction"
+    },
+    {
+      "id": "I04",
+      "name": "GeM/CPPP bid copilot",
+      "one_liner": "Finds eligible tenders and drafts compliant bids for small contractors.",
+      "score": 76,
+      "scores": {
+        "Pain & money at stake": 4,
+        "Who buys & willingness to pay": 4,
+        "Sales cycle": 4,
+        "Integration effort": 4,
+        "Competition & white space": 3,
+        "Why now (incl. public rails)": 4,
+        "Newcomer success": 3,
+        "Need for change": 4
+      },
+      "why": "Large, public demand; small firms miss tenders on paperwork.",
+      "risks": [
+        "Bid volume per contractor may be low"
+      ],
+      "evidence": [
+        "E03",
+        "E04"
+      ],
+      "rank": 4,
+      "industry": "Construction"
+    },
+    {
+      "id": "I05",
+      "industry": "MSME manufacturing",
+      "name": "RFQ-to-quote copilot",
+      "one_liner": "Reads a buyer's drawing and RFQ, estimates material and machining cost, and drafts the quote.",
+      "score": 74,
+      "scores": {
+        "Pain & money at stake": 4,
+        "Who buys & willingness to pay": 4,
+        "Sales cycle": 4,
+        "Integration effort": 3,
+        "Competition & white space": 4,
+        "Why now (incl. public rails)": 3,
+        "Newcomer success": 3,
+        "Need for change": 4
+      },
+      "why": "Small suppliers pay engineers to quote by hand and lose orders to slow replies; RFQs arrive with drawings that AI can now read.",
+      "risks": [
+        "Cost models differ by shop; needs calibration",
+        "Wrong quotes lose money"
+      ],
+      "evidence": [
+        "E22",
+        "E24",
+        "E25"
+      ],
+      "rank": 5
+    },
+    {
+      "id": "I06",
+      "name": "RERA filing copilot",
+      "one_liner": "Builds quarterly RERA updates from site photos and accounts.",
+      "score": 71,
+      "scores": {
+        "Pain & money at stake": 4,
+        "Who buys & willingness to pay": 3,
+        "Sales cycle": 3,
+        "Integration effort": 3,
+        "Competition & white space": 4,
+        "Why now (incl. public rails)": 4,
+        "Newcomer success": 2,
+        "Need for change": 4
+      },
+      "why": "Mandatory, recurring filing in every state.",
+      "risks": [
+        "Developers outsource filings to cheap consultants"
+      ],
+      "evidence": [
+        "E01",
+        "E02",
+        "E14"
+      ],
+      "rank": 6,
+      "industry": "Construction"
+    },
+    {
+      "id": "I07",
+      "industry": "MSME manufacturing",
+      "name": "OEM quality-pack builder",
+      "one_liner": "Assembles PPAP and supplier-audit documents from inspection data and photos.",
+      "score": 66,
+      "scores": {
+        "Pain & money at stake": 4,
+        "Who buys & willingness to pay": 4,
+        "Sales cycle": 3,
+        "Integration effort": 2,
+        "Competition & white space": 3,
+        "Why now (incl. public rails)": 3,
+        "Newcomer success": 2,
+        "Need for change": 4
+      },
+      "why": "OEMs require these documents before approving parts, and small suppliers build them by hand.",
+      "risks": [
+        "OEM portals and formats vary",
+        "Integration with inspection tools"
+      ],
+      "evidence": [
+        "E23"
+      ],
+      "rank": 7
+    },
+    {
+      "id": "I08",
+      "industry": "MSME manufacturing",
+      "name": "Phone-camera quality checks",
+      "one_liner": "Spots visible defects on parts from phone photos at the inspection table.",
+      "score": 62,
+      "scores": {
+        "Pain & money at stake": 3,
+        "Who buys & willingness to pay": 3,
+        "Sales cycle": 3,
+        "Integration effort": 3,
+        "Competition & white space": 3,
+        "Why now (incl. public rails)": 4,
+        "Newcomer success": 2,
+        "Need for change": 3
+      },
+      "why": "Visible-defect checks are manual; phone cameras and vision models are now good enough for simple parts.",
+      "risks": [
+        "Accuracy on varied parts",
+        "Global vision vendors moving down-market"
+      ],
+      "evidence": [
+        "E23"
+      ],
+      "rank": 8
+    },
+    {
+      "id": "I09",
+      "industry": "Freight trucking",
+      "name": "ONDC load matching",
+      "one_liner": "Helps small fleets find return loads through the ONDC logistics network.",
+      "score": 62,
+      "scores": {
+        "Pain & money at stake": 3,
+        "Who buys & willingness to pay": 2,
+        "Sales cycle": 3,
+        "Integration effort": 4,
+        "Competition & white space": 2,
+        "Why now (incl. public rails)": 5,
+        "Newcomer success": 3,
+        "Need for change": 3
+      },
+      "why": "Empty return trips cost money and ONDC opens a new channel, but load boards are already funded.",
+      "risks": [
+        "Load boards are crowded",
+        "Network adoption still early"
+      ],
+      "evidence": [
+        "E21",
+        "E27"
+      ],
+      "rank": 9
+    },
+    {
+      "id": "I10",
+      "industry": "Freight trucking",
+      "name": "Hindi voice dispatch",
+      "one_liner": "Drivers report trip status by voice; owners get a structured trip log.",
+      "score": 58,
+      "scores": {
+        "Pain & money at stake": 3,
+        "Who buys & willingness to pay": 3,
+        "Sales cycle": 3,
+        "Integration effort": 4,
+        "Competition & white space": 2,
+        "Why now (incl. public rails)": 3,
+        "Newcomer success": 2,
+        "Need for change": 3
+      },
+      "why": "Drivers prefer voice in Hindi over typing, but fleet apps already cover tracking.",
+      "risks": [
+        "Owners may not pay for logs alone"
+      ],
+      "evidence": [
+        "E18",
+        "E20"
+      ],
+      "rank": 10
+    }
+  ],
+  "industries": [
+    "Construction & real estate",
+    "Freight trucking & transport",
+    "MSME manufacturing (engineering & auto components)"
+  ],
+  "also_considered": [
+    {
+      "name": "Voice site diary in Hindi",
+      "reason_dropped": "Below the top 10"
+    },
+    {
+      "name": "BOQ takeoff from drawings",
+      "reason_dropped": "Below the top 10"
+    },
+    {
+      "name": "Labour attendance + UPI wages",
+      "reason_dropped": "Below the top 10"
+    },
+    {
+      "name": "Site safety vision",
+      "reason_dropped": "Below the top 10"
+    },
+    {
+      "name": "Snag list for handover",
+      "reason_dropped": "Below the top 10"
+    },
+    {
+      "name": "Material price agent",
+      "reason_dropped": "Below the top 10"
+    }
+  ]
+}
