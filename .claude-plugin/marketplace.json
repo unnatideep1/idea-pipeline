@@ -1,0 +1,13 @@
+{
+  "name": "idea-pipeline",
+  "owner": {
+    "name": "Unnati Deep"
+  },
+  "plugins": [
+    {
+      "name": "idea-pipeline",
+      "source": "./",
+      "description": "Turn any business-idea brief into one researched top pick, with sourced evidence at every step and a progressive HTML dashboard."
+    }
+  ]
+}

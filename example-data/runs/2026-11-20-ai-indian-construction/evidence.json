@@ -1,0 +1,205 @@
+{
+  "items": [
+    {
+      "id": "E01",
+      "source_id": "S01",
+      "url": "https://maharera.maharashtra.gov.in",
+      "claim": "Maharashtra developers file quarterly project progress updates on MahaRERA.",
+      "quote": "Illustrative: 'Promoter shall update project status quarterly…'",
+      "confidence": "high",
+      "questions": [
+        "Q5"
+      ],
+      "accessed": "2026-11-20"
+    },
+    {
+      "id": "E02",
+      "source_id": "S02",
+      "url": "https://rera.karnataka.gov.in",
+      "claim": "Karnataka RERA requires similar periodic updates with photos and expenditure.",
+      "quote": "Illustrative: quarterly progress report format with site photographs.",
+      "confidence": "high",
+      "questions": [
+        "Q5"
+      ],
+      "accessed": "2026-11-20"
+    },
+    {
+      "id": "E03",
+      "source_id": "S03",
+      "url": "https://gem.gov.in",
+      "claim": "Works and services categories on GeM run into many thousands of bids a year.",
+      "quote": "Illustrative placeholder figure for layout testing.",
+      "confidence": "medium",
+      "questions": [
+        "Q3"
+      ],
+      "accessed": "2026-11-20"
+    },
+    {
+      "id": "E04",
+      "source_id": "S04",
+      "url": "https://eprocure.gov.in",
+      "claim": "Tender documents require measurement-book records and running-account bills for payment.",
+      "quote": "Illustrative: 'Payment shall be made on RA bills certified by the Engineer-in-charge.'",
+      "confidence": "high",
+      "questions": [
+        "Q1",
+        "Q3"
+      ],
+      "accessed": "2026-11-20"
+    },
+    {
+      "id": "E05",
+      "source_id": "S10",
+      "url": "https://play.google.com/store/search?q=construction%20site%20management&c=apps",
+      "claim": "Reviews of site apps ask for Hindi support and offline mode.",
+      "quote": "Illustrative review: 'Supervisors can't type English, need voice in Hindi.'",
+      "confidence": "medium",
+      "questions": [
+        "Q4",
+        "Q7"
+      ],
+      "accessed": "2026-11-20"
+    },
+    {
+      "id": "E06",
+      "source_id": "S08",
+      "url": "https://www.getpowerplay.in",
+      "claim": "Leading site app pricing is per-user monthly, focused on attendance and material.",
+      "quote": "Illustrative pricing tiers from pricing page.",
+      "confidence": "medium",
+      "questions": [
+        "Q2",
+        "Q8"
+      ],
+      "accessed": "2026-11-20"
+    },
+    {
+      "id": "E07",
+      "source_id": "S12",
+      "url": "https://www.naukri.com",
+      "claim": "Hundreds of open 'billing engineer' roles at contractors.",
+      "quote": "Illustrative job count from search results.",
+      "confidence": "medium",
+      "questions": [
+        "Q2"
+      ],
+      "accessed": "2026-11-20"
+    },
+    {
+      "id": "E08",
+      "source_id": "S19",
+      "url": "https://www.youtube.com/results?search_query=RA+bill+kaise+banaye",
+      "claim": "Popular Hindi tutorials teach manual RA bill preparation in Excel.",
+      "quote": "Illustrative video title: 'RA bill kaise banaye Excel mein'.",
+      "confidence": "medium",
+      "questions": [
+        "Q1",
+        "Q7"
+      ],
+      "accessed": "2026-11-20"
+    },
+    {
+      "id": "E09",
+      "source_id": "S18",
+      "url": "https://shodhganga.inflibnet.ac.in",
+      "claim": "Studies cite billing delays as a top cause of contractor cash-flow stress.",
+      "quote": "Illustrative thesis finding.",
+      "confidence": "medium",
+      "questions": [
+        "Q1"
+      ],
+      "accessed": "2026-11-20"
+    },
+    {
+      "id": "E10",
+      "source_id": "S14",
+      "url": "https://entrackr.com",
+      "claim": "Several construction-tech startups raised rounds in 2024–26; some site-app players pivoted to materials.",
+      "quote": "Illustrative funding headline.",
+      "confidence": "medium",
+      "questions": [
+        "Q8",
+        "Q9"
+      ],
+      "accessed": "2026-11-20"
+    },
+    {
+      "id": "E11",
+      "source_id": "S16",
+      "url": "https://nhb.org.in",
+      "claim": "Housing finance companies release funds in stages linked to construction progress.",
+      "quote": "Illustrative guideline extract.",
+      "confidence": "high",
+      "questions": [
+        "Q2",
+        "Q5"
+      ],
+      "accessed": "2026-11-20"
+    },
+    {
+      "id": "E12",
+      "source_id": "S16",
+      "url": "https://nhb.org.in",
+      "claim": "Stage release depends on a technical inspection by an empanelled engineer.",
+      "quote": "Illustrative extract.",
+      "confidence": "medium",
+      "questions": [
+        "Q1",
+        "Q2"
+      ],
+      "accessed": "2026-11-20"
+    },
+    {
+      "id": "E13",
+      "source_id": "S17",
+      "url": "https://rbihub.in",
+      "claim": "ULI lets lenders pull third-party data services through standard APIs.",
+      "quote": "Illustrative description of ULI.",
+      "confidence": "high",
+      "questions": [
+        "Q6"
+      ],
+      "accessed": "2026-11-20"
+    },
+    {
+      "id": "E14",
+      "source_id": "S05",
+      "url": "https://credai.org",
+      "claim": "Developer bodies ask for faster approvals and simpler compliance.",
+      "quote": "Illustrative policy ask.",
+      "confidence": "medium",
+      "questions": [
+        "Q1",
+        "Q6"
+      ],
+      "accessed": "2026-11-20"
+    },
+    {
+      "id": "E15",
+      "source_id": "S07",
+      "url": "https://www.constructionworld.in",
+      "claim": "Trade media report low AI adoption among small contractors.",
+      "quote": "Illustrative headline.",
+      "confidence": "low",
+      "questions": [
+        "Q6",
+        "Q7"
+      ],
+      "accessed": "2026-11-20"
+    },
+    {
+      "id": "E16",
+      "source_id": "S15",
+      "url": "https://tracxn.com",
+      "claim": "Few funded players focus on lender-side construction verification.",
+      "quote": "Illustrative landscape count.",
+      "confidence": "low",
+      "questions": [
+        "Q8"
+      ],
+      "accessed": "2026-11-20"
+    }
+  ]
+}

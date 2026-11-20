@@ -1,0 +1,29 @@
+{
+  "idea_id": "I01",
+  "name": "Lender tranche inspections",
+  "one_liner": "Remote, AI-verified construction progress checks that let housing lenders release tranches faster and cheaper.",
+  "why": "It has the clearest payer: lenders already spend money on every stage inspection, the job recurs on every under-construction loan, and ULI gives a standard rail to plug into. Unlike contractor tools, it sells to a few dozen institutions rather than thousands of small firms.",
+  "evidence": [
+    "E11",
+    "E12",
+    "E13",
+    "E16"
+  ],
+  "why_not_others": [
+    {
+      "name": "RA bill autopilot",
+      "reason": "Strong pain, but thousands of small buyers and a long trust-building sale."
+    },
+    {
+      "name": "GeM/CPPP bid copilot",
+      "reason": "Real demand, but usage is episodic; better as a feature of the billing product."
+    }
+  ],
+  "riskiest_assumption": "Lenders will accept geotagged photo evidence plus AI checks in place of (or before) a physical visit by an empanelled engineer.",
+  "test": {
+    "method": "Interview technical or credit heads at 8 housing finance companies, then run 20 inspections in parallel with their physical visits.",
+    "success_signal": "3 lenders agree to a paid pilot; AI verdict matches the engineer's in 90% of cases",
+    "cost": "Under ₹1 lakh",
+    "duration": "4 weeks"
+  }
+}

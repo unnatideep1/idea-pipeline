@@ -1,0 +1,5 @@
+# Your research data never goes to GitHub.
+# The data folder should live OUTSIDE this repo; these lines are a safety net.
+idea-pipeline-data/
+__pycache__/
+.DS_Store
