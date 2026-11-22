@@ -42,6 +42,7 @@ def cmd_add(args) -> int:
     evidence = load_json(run / "evidence.json", {}).get("items", [])
     yield_ = load_json(run / "source_yield.json", {})
     scan = load_json(run / "industry_scan.json", {})
+    rank = load_json(run / "industry_rank.json", {})
     screened = [c.get("name") for c in scan.get("candidates", [])]
 
     text = " ".join(str(brief.get(k, "")) for k in ("title", "scope", "industry", "use_case", "buyer", "user", "geography", "business_model"))
@@ -55,7 +56,8 @@ def cmd_add(args) -> int:
         "playbook": brief.get("playbook"),
         "industry": brief.get("industry"),
         "industries_screened": screened,
-        "shortlist": scan.get("shortlist", []),
+        "shortlist": [i.get("industry") for i in sorted(rank.get("industries", []), key=lambda i: i.get("rank") or 99)]
+        or scan.get("shortlist", []),
         "geography": brief.get("geography"),
         "keywords": sorted(words(text)),
         "top10": [i.get("name") for i in top10.get("ideas", [])],
