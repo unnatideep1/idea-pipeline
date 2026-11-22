@@ -14,7 +14,7 @@ Python 3.9+, standard library only. Writes `dashboard.html` into the run folder:
 | # | Section | Reads | Pending until |
 |---|---|---|---|
 | 1 | Brief | `brief.json` | brief written |
-| 2 | Industry scan (shortlist + "why not now" table) | `industry_scan.json` | industry scout done |
+| 2 | Industry scan (evidence-based stack rank from `industry_rank.json` if present; else shortlist + "why not now" table) | `industry_scan.json`, `industry_rank.json` | industry scout done |
 | 3 | Target market | `market.json` | source hunter done |
 | 4 | Sources (+ checker warning) | `source_plan.json`, `source_check.json` | source hunter done |
 | 5 | Top 10 ideas (+ industry tag, red-team badges) | `top10.json`, `redteam.json`, `evidence.json` | analyst done |
@@ -39,6 +39,13 @@ Only the fields shown are read by the renderer; agents may add more.
  "candidates": [{"rank": 1, "name": "", "one_liner": "", "score": 0, "scores": {"criterion": 1},
    "shortlisted": true, "reason": "", "signals": [{"text": "", "url": "", "source": ""}]}],
  "shortlist": [""]}
+```
+
+**industry_rank.json** (optional, written by the analyst after research). When present, section 2 leads with this evidence-based stack rank, and the quick screen moves into a collapsed panel.
+```json
+{"summary": "", "industries": [{"rank": 1, "industry": "", "score": 0, "scores": {"criterion": 1},
+   "score_evidence": {"criterion": ["E01"]}, "verdict": "", "lowest_hanging_fruit": "",
+   "evidence_count": 0, "confidence": "high|medium|low", "prior_scores": {"scan": 0, "recheck": 0}}]}
 ```
 
 **market.json**

@@ -39,7 +39,7 @@ JSON shapes are defined in `${CLAUDE_PLUGIN_ROOT}/skills/render-dashboard/SKILL.
 3. **Source hunter** (agent `source-hunter`) → `market.json`, `source_plan.json`, covering **every shortlisted industry**. It may return **one** blocking question if something critical is ambiguous; ask the user, pass the answer back. Render.
 4. **Source checker** (agent `source-checker`) → `checker_list.json`, `source_check.json`. If the verdict is a gap list, send it to the hunter to fix, then re-check. **Max 2 rounds, no user pause.** Unresolved gaps stay in `source_check.json` and show as a warning on the dashboard. Render.
 5. **Researcher** (agent `researcher`) → `evidence.json`. Then ask the hunter to write `source_yield.json` and `playbook_proposals.md` (which sources actually produced evidence). Render.
-6. **Analyst** (agent `analyst`) → `top10.json`, ideas drawn from all shortlisted industries and ranked on score alone. Render.
+6. **Analyst** (agent `analyst`) → `industry_rank.json` (an evidence-based stack rank of every researched industry) and `top10.json` (ideas drawn from all of them, ranked on score alone). Render.
    **Checkpoint 2:** show the dashboard and a 10-line summary (rank, industry, name, score) as your recommendation. The user may object, drop, add or merge ideas. If the user asks to swap an industry, re-run from step 3 for that industry only. Send changes back, then continue.
 7. **Red team** (agent `red-team`) → `redteam.json`, about 3 survivors. If it rejects the scoring (not on the playbook rubric), send the analyst back once, then re-run. Founder fit runs **only** if `DATA/founder_profile.md` exists. Render.
 8. **Entrepreneur** (agent `entrepreneur`) → `pick.json`. Render.

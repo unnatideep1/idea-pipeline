@@ -132,7 +132,41 @@ def score_html(score) -> str:
             f'<span style="width:{pct:.0f}%"></span></span>{e(score)}</span>')
 
 
-def render_scan(scan) -> str:
+def render_rank(rank, ev_index) -> str:
+    inds = sorted(rank.get("industries") or [], key=lambda c: c.get("rank") or 99)
+    out = ['<h3>Evidence-based stack rank</h3>',
+           f'<p class="lead">{e(rank.get("summary"))}</p>' if rank.get("summary") else ""]
+    cards = []
+    for c in inds:
+        cites = c.get("score_evidence") or {}
+        breakdown = "".join(
+            f"<li><span>{e(k)}{cite_inline(cites.get(k), ev_index)}</span><span>{e(v)}/5</span></li>"
+            for k, v in (c.get("scores") or {}).items()
+        )
+        prior = c.get("prior_scores") or {}
+        prior_txt = ", ".join(f"{e(k)} {e(v)}" for k, v in prior.items() if v is not None)
+        cards.append(
+            '<li class="idea"><details><summary>'
+            f'<span class="rank">#{e(c.get("rank"))}</span>'
+            f'<span class="idea-main"><span class="idea-name">{e(c.get("industry"))}</span>'
+            f'<span class="idea-line">{e(c.get("verdict"))}</span></span>'
+            f'<span class="idea-side">{score_html(c.get("score"))}</span>'
+            '</summary><div class="idea-body">'
+            + (f'<h4>Lowest-hanging fruit</h4><p>{e(c.get("lowest_hanging_fruit"))}</p>' if c.get("lowest_hanging_fruit") else "")
+            + (f'<h4>Score breakdown</h4><ul class="breakdown">{breakdown}</ul>' if breakdown else "")
+            + f'<p class="muted small">{e(c.get("evidence_count"))} evidence items · confidence {e(c.get("confidence"))}'
+            + (f' · quick-screen scores: {prior_txt}' if prior_txt else "") + "</p>"
+            + "</div></details></li>"
+        )
+    out.append(f'<ol class="ideas">{"".join(cards)}</ol>')
+    return "".join(out)
+
+
+def render_scan(scan, rank=None, ev_index=None) -> str:
+    if rank:
+        first = render_scan(scan) if scan else ""
+        return render_rank(rank, ev_index or {}) + (
+            f'<details class="more"><summary>First-pass quick screen</summary>{first}</details>' if first else "")
     if not scan:
         return pending("The industry scan")
     noun = "segments" if scan.get("level") == "segment" else "industries"
@@ -399,6 +433,7 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;margin-top:2rem}
 def render(run: Path) -> str:
     brief = load(run, "brief.json")
     scan = load(run, "industry_scan.json")
+    rank = load(run, "industry_rank.json")
     market = load(run, "market.json")
     plan = load(run, "source_plan.json")
     check = load(run, "source_check.json")
@@ -414,7 +449,7 @@ def render(run: Path) -> str:
         item.setdefault("source_name", src_names.get(item.get("source_id")))
         ev_index[item.get("id")] = item
 
-    done = {"brief": bool(brief), "scan": bool(scan), "market": bool(market), "sources": bool(plan),
+    done = {"brief": bool(brief), "scan": bool(scan or rank), "market": bool(market), "sources": bool(plan),
             "ideas": bool(top10), "pick": bool(pick)}
     title = (brief or {}).get("title") or run.name
     example = bool((brief or {}).get("example"))
@@ -425,7 +460,7 @@ def render(run: Path) -> str:
     )
     bodies = {
         "brief": render_brief(brief),
-        "scan": render_scan(scan),
+        "scan": render_scan(scan, rank, ev_index),
         "market": render_market(market, ev_index),
         "sources": render_sources(plan, check),
         "ideas": render_ideas(top10, redteam, ev_index),
